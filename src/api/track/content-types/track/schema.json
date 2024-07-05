@@ -4,10 +4,11 @@
   "info": {
     "singularName": "track",
     "pluralName": "tracks",
-    "displayName": "Track"
+    "displayName": "Track",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -19,20 +20,20 @@
       "type": "string"
     },
     "preview": {
-      "allowedTypes": [
-        "audios"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
     },
     "file": {
-      "allowedTypes": [
-        "audios"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
     },
     "albums": {
       "type": "relation",
@@ -45,6 +46,15 @@
       "relation": "manyToMany",
       "target": "api::genre.genre",
       "inversedBy": "tracks"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tracks"
+    },
+    "previewLink": {
+      "type": "string"
     }
   }
 }

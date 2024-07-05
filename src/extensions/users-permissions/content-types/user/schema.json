@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -70,6 +69,39 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::album.album",
+      "mappedBy": "users_permissions_user"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "about": {
+      "type": "string",
+      "maxLength": 140
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "gigs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gig.gig",
+      "mappedBy": "users_permissions_user"
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::track.track",
       "mappedBy": "users_permissions_user"
     }
   }
